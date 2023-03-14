@@ -117,21 +117,4 @@ df2['bar_score'] = df2.apply(lambda x: bayesian_average_rating(x[['one', 'two', 
 
 bayesian_average_rating([34733, 4355, 4704, 6561])
 
-### SOR ### df2['bar_score2'] = bayesian_average_rating([df2["one"], df2["two"], df2["three"], df2["four"], df2["five"],
-###                                         df2["six"], df2["seven"], df2["eight"], df2["nine"], df2["ten"]])
-
 df2.sort_values('bar_score', ascending=False).head(10)
-
-# Weighted Average Ratings
-# IMDb publishes weighted vote averages rather than raw data averages.
-# The simplest way to explain it is that although we accept and consider all votes received by users,
-# not all votes have the same impact (or ‘weight’) on the final rating.
-
-# When unusual voting activity is detected,
-# an alternate weighting calculation may be applied in order to preserve the reliability of our system.
-# To ensure that our rating mechanism remains effective,
-# we do not disclose the exact method used to generate the rating.
-
-# See also the complete FAQ for IMDb ratings. https://help.imdb.com/article/imdb/track-movies-tv/ratings-faq/G67Y87TFYYP6TWAV#
-
-
