@@ -1,6 +1,10 @@
 ############################################
 # IMDB Movie Scoring & Sorting
 ############################################
+- Sorting by Vote Count or Average
+- Sorting by Vote Count and Average
+- IMDB Weighted Rating
+- Sorting by Bayesian Average Rating Score
 
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
