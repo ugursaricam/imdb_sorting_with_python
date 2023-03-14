@@ -7,3 +7,6 @@ IMDB publishes weighted vote averages rather than raw data averages. The simples
 When unusual voting activity is detected, an different weighting calculation may be applied in order to preserve the reliability of our system. To ensure our rating mechanism remains effective, we don't disclose the exact method used to generate the rating.
 
 See also the complete FAQ for IMDb ratings. https://help.imdb.com/article/imdb/track-movies-tv/ratings-faq/G67Y87TFYYP6TWAV
+
+
+dataset: https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv
