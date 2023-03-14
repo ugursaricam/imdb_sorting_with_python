@@ -48,7 +48,18 @@ df.sort_values('vote_count_score', ascending=False)
 
 df['average_count_score'] = df['vote_average'] * df['vote_count_score']
 
-df.sort_values('average_count_score', ascending=False).head(10)
+df.sort_values('average_count_score', ascending=False)['title'].head(10)
+
+# 15480                  Inception
+# 12481            The Dark Knight
+# 22879               Interstellar
+# 17818               The Avengers
+# 14551                     Avatar
+# 26564                   Deadpool
+# 2843                  Fight Club
+# 20051           Django Unchained
+# 23753    Guardians of the Galaxy
+# 292                 Pulp Fiction
 
 ############################################
 # IMDB Weighted Rating
@@ -80,7 +91,18 @@ df['weighted_rating'] = weighted_rating(df["vote_average"], df["vote_count"], M,
 
 df.head()
 
-df.sort_values('weighted_rating', ascending=False).head(10)
+df.sort_values('weighted_rating', ascending=False)['title'].head(10)
+
+# 12481                                      The Dark Knight
+# 314                               The Shawshank Redemption
+# 2843                                            Fight Club
+# 15480                                            Inception
+# 292                                           Pulp Fiction
+# 834                                          The Godfather
+# 22879                                         Interstellar
+# 351                                           Forrest Gump
+# 7000         The Lord of the Rings: The Return of the King
+# 4863     The Lord of the Rings: The Fellowship of the Ring
 
 ############################################
 # Sorting by Bayesian Average Rating Score
@@ -119,6 +141,18 @@ bayesian_average_rating([37128, 5879, 6268, 8419, 16603, 30016, 78538, 199430, 4
 df2['bar_score'] = df2.apply(lambda x: bayesian_average_rating(x[['one', 'two', 'three', 'four', 'five',
                                                                 'six', 'seven', 'eight', 'nine', 'ten']]), axis=1)
 
-bayesian_average_rating([34733, 4355, 4704, 6561])
+df2.sort_values('bar_score', ascending=False)[['movieName', 'rating', 'bar_score']]
 
-df2.sort_values('bar_score', ascending=False).head(10)
+#                                         movieName  rating  bar_score
+# 0        1.       The Shawshank Redemption (1994)    9.20       9.15
+# 1                   2.       The Godfather (1972)    9.10       8.94
+# 3                 4.       The Dark Knight (2008)    9.00       8.90
+# 2          3.       The Godfather: Part II (1974)    9.00       8.81
+# 4                    5.       12 Angry Men (1957)    8.90       8.77
+# ..                                            ...     ...        ...
+# 196                197.       Sherlock Jr. (1924)    8.10       7.91
+# 246                    247.       The Help (2011)    8.00       7.87
+# 237   238.       Du rififi chez les hommes (1955)    8.00       7.86
+# 220       221.       Le salaire de la peur (1953)    8.00       7.82
+# 225  226.       La passion de Jeanne d'Arc (1928)    8.00       7.81
+# [250 rows x 3 columns]
